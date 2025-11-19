@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_Custom/Scene/Game.unity
+    path: Assets/_Custom/Scene/LV3.unity
     guid: fc9ef99bb44a3914da8071cfcbea6a0b
   - enabled: 1
     path: Assets/_Custom/Scene/Game2.unity

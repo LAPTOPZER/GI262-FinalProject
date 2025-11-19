@@ -22,8 +22,5 @@ public class SceneBootstrap : MonoBehaviour
                 return;
             }
         }
-
-        //ถ้าไม่เจอ spawn ใช้พิกัดสำรอง
-        player.transform.position = data.playerPos;
     }
 }

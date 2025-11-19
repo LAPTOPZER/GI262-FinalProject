@@ -7,16 +7,6 @@ public class SaveDemoHotkeys : MonoBehaviour
 
     void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.S))
-        //{
-        //    var data = new SaveData
-        //    {
-        //        sceneName = SceneManager.GetActiveScene().name,
-        //        spawnPoint = "", // ถ้าเซฟกลางฉาก อาจปล่อยว่าง
-        //        playerPos = GameObject.FindGameObjectWithTag("Player").transform.position
-        //    };
-        //    SaveSystem.Save(data);
-        //}
 
         if (Input.GetKeyDown(KeyCode.L))
         {

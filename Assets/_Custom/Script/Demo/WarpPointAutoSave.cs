@@ -16,7 +16,6 @@ public class WarpPointAutoSave : MonoBehaviour
         {
             sceneName = targetScene,
             spawnPoint = targetSpawnName,
-            playerPos = currentPos
         };
 
         SaveSystem.Save(data);
