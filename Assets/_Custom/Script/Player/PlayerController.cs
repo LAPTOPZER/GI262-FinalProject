@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer sr;
 
     //Stat
-    private int hp;
+    public int hp = 100;
     private bool isDied;
 
     void Awake()

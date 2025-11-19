@@ -11961,6 +11961,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WarpPoint_SaveAndGo
   targetScene: LV3
   targetSpawnName: SpawnLv3
+  requiredKey: 2
 --- !u!61 &1528299489
 BoxCollider2D:
   m_ObjectHideFlags: 0

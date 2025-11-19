@@ -2,9 +2,12 @@ using UnityEngine;
 
 public class Chest : MonoBehaviour
 {
-    public string requireKey;
+    [SerializeField]bool isOpen = false;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        requireKey += 1;
+        if (!isOpen)
+        {
+            isOpen = true;
+        }
     }
 }

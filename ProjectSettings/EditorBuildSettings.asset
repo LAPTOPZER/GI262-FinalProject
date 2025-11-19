@@ -6,19 +6,13 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_Custom/Scene/LV3.unity
-    guid: fc9ef99bb44a3914da8071cfcbea6a0b
-  - enabled: 0
-    path: Assets/_Custom/Scene/Game2.unity
-    guid: 2a8673992345b2d4f9caaf6958e7e3d6
-  - enabled: 0
-    path: Assets/_Custom/Scene/Game3.unity
-    guid: 2659a86ffcd1aeb44b77cf3de7e00a35
-  - enabled: 1
     path: Assets/_Custom/Scene/LV1.unity
     guid: 475bb5a0bcb52cb43b5574973521a162
   - enabled: 1
     path: Assets/_Custom/Scene/LV2.unity
     guid: f3c2dadf3426a8542a9aac21082c554c
+  - enabled: 1
+    path: Assets/_Custom/Scene/LV3.unity
+    guid: fc9ef99bb44a3914da8071cfcbea6a0b
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

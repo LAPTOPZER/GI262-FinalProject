@@ -178,6 +178,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2245264802184542736, guid: 08f70389b73d7b84f933f697f29fdf13,
+        type: 3}
+      propertyPath: hp
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 4188695540386237145, guid: 08f70389b73d7b84f933f697f29fdf13,
         type: 3}
       propertyPath: m_Name
@@ -8178,6 +8183,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WarpPoint_SaveAndGo
   targetScene: LV2
   targetSpawnName: SpawnLv2
+  requiredKey: 1
 --- !u!61 &1224501403
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8413,6 +8419,53 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1878774338
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1878774340}
+  - component: {fileID: 1878774339}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1878774339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1878774338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2b977ec2078af04b8594570f20f14a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Inventory
+  keyLv1Count: 0
+  keyLv2Count: 0
+  keyLv3Count: 0
+--- !u!4 &1878774340
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1878774338}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.00873, y: -1.10203, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &5574357574256153492
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8558,4 +8611,5 @@ SceneRoots:
   - {fileID: 1768126409}
   - {fileID: 1224501400}
   - {fileID: 1878035635}
+  - {fileID: 1878774340}
   - {fileID: 780131722}
