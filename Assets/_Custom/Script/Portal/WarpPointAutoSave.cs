@@ -7,6 +7,7 @@ public class WarpPointAutoSave : MonoBehaviour
     [SerializeField] string targetSpawnName;
 
     [SerializeField] ItemType requiredKey = ItemType.None;
+    [SerializeField] GameObject winText;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -72,7 +73,10 @@ public class WarpPointAutoSave : MonoBehaviour
                 {
                     inv.keyLv3Count -= inv.keyLv3Count;
                     Debug.Log("Delete KeyLV3");
-                    return true;
+                    Time.timeScale = 0; //Demo
+                    winText.SetActive(true); //Demo
+
+                    //return true;  //Demo
                 }
                 return false;
         }

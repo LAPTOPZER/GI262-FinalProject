@@ -7,7 +7,7 @@ public class ChestFake : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            PlayerController player = GetComponent<PlayerController>();
+            PlayerController player = other.GetComponent<PlayerController>();
             GameObject explosionFX = Instantiate(DestroyFX, transform.position, Quaternion.identity);
             Destroy(explosionFX, 0.5f);
             Destroy(this.gameObject);

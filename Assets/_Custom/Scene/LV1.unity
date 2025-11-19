@@ -6294,6 +6294,7 @@ Transform:
   - {fileID: 1539065123}
   - {fileID: 162865955}
   - {fileID: 882665932}
+  - {fileID: 1738585876}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &882665931
@@ -8184,6 +8185,7 @@ MonoBehaviour:
   targetScene: LV2
   targetSpawnName: SpawnLv2
   requiredKey: 1
+  winText: {fileID: 0}
 --- !u!61 &1224501403
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8235,6 +8237,80 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4876335793599170714, guid: 6b404179d068dbc47a24ce3ef5d2c40e,
     type: 3}
   m_PrefabInstance: {fileID: 8455606545585553671}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1738585875
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 780131722}
+    m_Modifications:
+    - target: {fileID: 7420715283163825411, guid: 1dd5b9c0a423e9e49a366c34a01db19c,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 10.21
+      objectReference: {fileID: 0}
+    - target: {fileID: 7420715283163825411, guid: 1dd5b9c0a423e9e49a366c34a01db19c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -6.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 7420715283163825411, guid: 1dd5b9c0a423e9e49a366c34a01db19c,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7420715283163825411, guid: 1dd5b9c0a423e9e49a366c34a01db19c,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7420715283163825411, guid: 1dd5b9c0a423e9e49a366c34a01db19c,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7420715283163825411, guid: 1dd5b9c0a423e9e49a366c34a01db19c,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7420715283163825411, guid: 1dd5b9c0a423e9e49a366c34a01db19c,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7420715283163825411, guid: 1dd5b9c0a423e9e49a366c34a01db19c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7420715283163825411, guid: 1dd5b9c0a423e9e49a366c34a01db19c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7420715283163825411, guid: 1dd5b9c0a423e9e49a366c34a01db19c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8768343115217980815, guid: 1dd5b9c0a423e9e49a366c34a01db19c,
+        type: 3}
+      propertyPath: m_Name
+      value: ChestFake
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1dd5b9c0a423e9e49a366c34a01db19c, type: 3}
+--- !u!4 &1738585876 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7420715283163825411, guid: 1dd5b9c0a423e9e49a366c34a01db19c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1738585875}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1765190668
 GameObject:
@@ -8370,7 +8446,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1878035635}
-  - component: {fileID: 1878035634}
   - component: {fileID: 1878035633}
   m_Layer: 0
   m_Name: SaveManager
@@ -8391,19 +8466,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bd3c3b10af8dbf44894ba1b4fa4df6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneBootstrap
---- !u!114 &1878035634
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1878035632}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b357d3a7b0b7f2a4b986365462de3fc7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SaveDemoHotkeys
-  defaultScene: LV1
 --- !u!4 &1878035635
 Transform:
   m_ObjectHideFlags: 0

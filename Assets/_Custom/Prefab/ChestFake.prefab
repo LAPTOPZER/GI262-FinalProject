@@ -104,7 +104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5fb22dd8dcb82844b0a725f18f0c21a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChestFake
-  DestroyFX: {fileID: 2015993760785553965, guid: 1abcb6946495ad242aaefa603a0f4d0b,
+  DestroyFX: {fileID: 2001525712716721480, guid: 117a485f8cad33748bca66c91a0c98fe,
     type: 3}
 --- !u!61 &4338613863211811815
 BoxCollider2D:
