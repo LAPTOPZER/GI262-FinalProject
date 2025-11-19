@@ -2,15 +2,16 @@ using UnityEngine;
 
 public class ChestFake : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public GameObject DestroyFX;
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (other.CompareTag("Player"))
+        {
+            PlayerController player = GetComponent<PlayerController>();
+            GameObject explosionFX = Instantiate(DestroyFX, transform.position, Quaternion.identity);
+            Destroy(explosionFX, 0.5f);
+            Destroy(this.gameObject);
+            player.TakeDamage(20);
+        }
     }
 }

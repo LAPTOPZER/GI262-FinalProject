@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
 
     //Stat
     public int hp = 100;
-    private bool isDied;
+    private bool isDied = false;
 
     void Awake()
     {
@@ -66,8 +66,10 @@ public class PlayerController : MonoBehaviour
         hp -= damage;
         if (hp <= 0)
         {
+            isDied = true;
             Time.timeScale = 0;
         }
     }
+
 
 }
