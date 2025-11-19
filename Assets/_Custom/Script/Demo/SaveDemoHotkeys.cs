@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class SaveDemoHotkeys : MonoBehaviour
 {
-    [SerializeField] string defaultScene = "Game";
+    [SerializeField] string defaultScene;
 
     void Update()
     {
