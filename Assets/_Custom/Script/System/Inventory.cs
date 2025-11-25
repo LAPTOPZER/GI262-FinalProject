@@ -7,6 +7,8 @@ public class Inventory : MonoBehaviour
     public int keyLv1Count = 0;
     public int keyLv2Count = 0;
     public int keyLv3Count = 0;
+    public int keyLv4Count = 0;
+    public int keyLv5Count = 0;
 
     private void Awake()
     {
@@ -33,6 +35,12 @@ public class Inventory : MonoBehaviour
                 break;
             case ItemType.KeyLV3:
                 keyLv3Count += amount;
+                break;
+            case ItemType.KeyLV4:
+                keyLv4Count += amount;
+                break;
+            case ItemType.KeyLV5:
+                keyLv5Count += amount;
                 break;
         }
     }

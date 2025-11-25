@@ -4569,7 +4569,7 @@ TilemapRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 2
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -8737,6 +8737,8 @@ MonoBehaviour:
   keyLv1Count: 0
   keyLv2Count: 0
   keyLv3Count: 0
+  keyLv4Count: 0
+  keyLv5Count: 0
 --- !u!4 &1878774340
 Transform:
   m_ObjectHideFlags: 0
@@ -8901,7 +8903,7 @@ SceneRoots:
   - {fileID: 356883181}
   - {fileID: 217947547}
   - {fileID: 1768126409}
-  - {fileID: 1224501400}
   - {fileID: 1878035635}
   - {fileID: 1878774340}
   - {fileID: 780131722}
+  - {fileID: 1224501400}

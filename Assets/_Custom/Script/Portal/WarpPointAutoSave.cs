@@ -73,10 +73,26 @@ public class WarpPointAutoSave : MonoBehaviour
                 {
                     inv.keyLv3Count -= inv.keyLv3Count;
                     Debug.Log("Delete KeyLV3");
-                    Time.timeScale = 0; //Demo
-                    winText.SetActive(true); //Demo
 
-                    //return true;  //Demo
+                    return true;
+                }
+                return false;
+            case ItemType.KeyLV4:
+                if (inv.keyLv4Count > 0)
+                {
+                    inv.keyLv4Count -= inv.keyLv4Count;
+                    Debug.Log("Delete KeyLV4");
+
+                    return true;
+                }
+                return false;
+            case ItemType.KeyLV5:
+                if (inv.keyLv5Count > 0)
+                {
+                    inv.keyLv5Count -= inv.keyLv5Count;
+                    Debug.Log("Delete KeyLV5");
+                    Time.timeScale = 0;
+                    //winText.SetActive(true);
                 }
                 return false;
         }

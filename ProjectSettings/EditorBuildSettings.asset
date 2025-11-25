@@ -13,6 +13,12 @@ EditorBuildSettings:
     guid: f3c2dadf3426a8542a9aac21082c554c
   - enabled: 1
     path: Assets/_Custom/Scene/LV3.unity
+    guid: df3df9d82ec8df34f848029621f9745e
+  - enabled: 1
+    path: Assets/_Custom/Scene/LV4.unity
     guid: fc9ef99bb44a3914da8071cfcbea6a0b
+  - enabled: 1
+    path: Assets/_Custom/Scene/LV5.unity
+    guid: 25dfbbb02f32bae4994a5a5249b3e938
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
