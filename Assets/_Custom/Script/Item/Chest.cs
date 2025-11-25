@@ -12,7 +12,6 @@ public class Chest : MonoBehaviour
     {
         if (canOpen && Input.GetKeyDown(KeyCode.E))
         {
-            Debug.Log("E");
             GameObject explosionFX = Instantiate(DestroyFX, transform.position, Quaternion.identity);
             Destroy(explosionFX, 0.5f);
             Destroy(this.gameObject);

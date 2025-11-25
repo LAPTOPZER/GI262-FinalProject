@@ -1,17 +1,39 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ChestFake : MonoBehaviour
 {
     public GameObject DestroyFX;
-    private void OnTriggerEnter2D(Collider2D other)
+    private bool canOpen = false;
+
+    public GameObject UnlockText;
+    private PlayerController player;
+
+    private void Update()
     {
-        if (other.CompareTag("Player"))
+        if (canOpen && Input.GetKeyDown(KeyCode.E))
         {
-            PlayerController player = other.GetComponent<PlayerController>();
+            player.TakeDamage(20);
             GameObject explosionFX = Instantiate(DestroyFX, transform.position, Quaternion.identity);
             Destroy(explosionFX, 0.5f);
             Destroy(this.gameObject);
-            player.TakeDamage(20);
+            
         }
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (!other.CompareTag("Player")) return;
+
+            UnlockText.SetActive(true);
+            canOpen = true;
+
+        player = other.GetComponent<PlayerController>();
+    }
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (!other.CompareTag("Player")) return;
+
+        canOpen = false;
+        UnlockText.SetActive(false);
+
     }
 }
