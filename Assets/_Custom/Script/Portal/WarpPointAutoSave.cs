@@ -21,11 +21,17 @@ public class WarpPointAutoSave : MonoBehaviour
 
         if (!UseRequiredKey())
         {
-            noKeyText.SetActive(true);
-            warpText.SetActive(false);
+            if (!UseRequiredKey())
+            {
+                if (noKeyText != null) noKeyText.SetActive(true);
+                if (warpText != null) warpText.SetActive(false);
+                return;
+            }
         }
 
-        var data = new SaveData
+        if (targetScene == "NONE") return;
+
+            var data = new SaveData
         {
             currentHp = currentPlayer.hp,
             sceneName = targetScene,
@@ -140,7 +146,9 @@ public class WarpPointAutoSave : MonoBehaviour
                 {
                     inv.keyLv5Count -= 1;
                     if (winText != null) winText.SetActive(true);
+                    if (warpText != null) warpText.SetActive(false);
                     Time.timeScale = 0;
+                    SaveSystem.Delete();
                     return true;
                 }
                 return false;
