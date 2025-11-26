@@ -14,10 +14,12 @@ public class PlayerController : MonoBehaviour
 
     //Stat
     public int hp = 100;
+    public int maxHp = 100;
     private bool isDied = false;
 
     //UI
     [SerializeField]private TMP_Text hpText;
+    [SerializeField] private GameObject loseUI;
 
     void Awake()
     {
@@ -77,6 +79,7 @@ public class PlayerController : MonoBehaviour
         if (hp <= 0)
         {
             isDied = true;
+            loseUI.SetActive(true);
             Time.timeScale = 0;
         }
     }
@@ -88,6 +91,14 @@ public class PlayerController : MonoBehaviour
         if (hpText != null)
             hpText.text = $": {hp}";
     }
+    public void Heal(int amount)
+    {
+        if (hp <= 0) return;
 
+        hp += amount;
+        if (hp > maxHp) hp = maxHp;
+
+        SetHp(hp);
+    }
 
 }

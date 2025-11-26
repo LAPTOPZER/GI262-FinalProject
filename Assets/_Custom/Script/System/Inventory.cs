@@ -1,5 +1,6 @@
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Inventory : MonoBehaviour
 {
@@ -12,7 +13,6 @@ public class Inventory : MonoBehaviour
     public int keyLv5Count = 0;
     public int healPotion = 0;
 
-    public TMP_Text potionText;
 
     private void Awake()
     {
@@ -27,7 +27,6 @@ public class Inventory : MonoBehaviour
             return;
         }
 
-        UpdateUI();
     }
 
     public void Collect(ItemType type, int amount)
@@ -54,13 +53,43 @@ public class Inventory : MonoBehaviour
                 healPotion += amount;
                 break;
         }
-        UpdateUI();
+
+        RefreshUI();
     }
 
-    public void UpdateUI()
+    public void UseHeal(int healAmount)
     {
-        if (potionText != null)
-            potionText.text = $"x {healPotion}";
+        if (healPotion <= 0)
+        {
+            Debug.Log("No Item Heal");
+            return;
+        }
 
+        var playerObj = GameObject.FindGameObjectWithTag("Player");
+        if (playerObj == null)
+        {
+            Debug.LogWarning("ไม่พบ Player ในฉาก");
+            return;
+        }
+
+        var player = playerObj.GetComponent<PlayerController>();
+        if (player == null)
+        {
+            Debug.LogWarning("Player ไม่มี PlayerController");
+            return;
+        }
+
+        healPotion -= 1;
+        player.Heal(healAmount);
+
+        RefreshUI();
+    }
+
+    private void RefreshUI()
+    {
+        foreach (var ui in FindObjectsOfType<InventoryUI>())
+        {
+            ui.UpdateUI();
+        }
     }
 }

@@ -4,6 +4,8 @@ using UnityEngine.SceneManagement;
 
 public class MenuUIHandler : MonoBehaviour
 {
+    public int healAmount = 20;
+
     //_MainMenu
     public void StartGame()
     {
@@ -22,6 +24,7 @@ public class MenuUIHandler : MonoBehaviour
         }
 
         SceneManager.LoadScene("_MainMenu");
+        Time.timeScale = 1f;
     }
 
     public void HowToPlay()
@@ -59,5 +62,24 @@ public class MenuUIHandler : MonoBehaviour
         else
             Debug.LogWarning("No Save");
             return;
+    }
+
+    public void TryAgain()
+    {
+        NewGame();
+        Time.timeScale = 1f;
+    }
+
+    public void UseHealButton()
+    {
+        if (Inventory.Instance != null)
+        {
+            Inventory.Instance.UseHeal(healAmount);
+        }
+        else
+        {
+            Debug.LogWarning("Inventory.Instance is null");
+        }
+
     }
 }
