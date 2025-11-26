@@ -5,5 +5,6 @@ public enum ItemType
     KeyLV2,
     KeyLV3,
     KeyLV4,
-    KeyLV5
+    KeyLV5,
+    HealPotion
 }

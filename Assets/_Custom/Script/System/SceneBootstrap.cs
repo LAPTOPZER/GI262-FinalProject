@@ -19,8 +19,14 @@ public class SceneBootstrap : MonoBehaviour
             if (spawn != null)
             {
                 player.transform.position = spawn.transform.position;
-                return;
             }
+        }
+
+        var playerCtrl = player.GetComponent<PlayerController>();
+        if (playerCtrl != null)
+        {
+            playerCtrl.SetHp(data.currentHp);
+            return;
         }
     }
 }

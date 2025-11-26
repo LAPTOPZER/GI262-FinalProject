@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
@@ -15,11 +16,16 @@ public class PlayerController : MonoBehaviour
     public int hp = 100;
     private bool isDied = false;
 
+    //UI
+    [SerializeField]private TMP_Text hpText;
+
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
+
+        SetHp(hp);
     }
 
     void Update()
@@ -64,11 +70,23 @@ public class PlayerController : MonoBehaviour
     public void TakeDamage(int damage)
     {
         hp -= damage;
+        if (hp < 0) hp = 0;
+
+        SetHp(hp);
+
         if (hp <= 0)
         {
             isDied = true;
             Time.timeScale = 0;
         }
+    }
+
+    public void SetHp(int value)
+    {
+        hp = value;
+
+        if (hpText != null)
+            hpText.text = $": {hp}";
     }
 
 

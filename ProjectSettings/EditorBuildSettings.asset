@@ -29,5 +29,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Custom/Scene/LV5.unity
     guid: 25dfbbb02f32bae4994a5a5249b3e938
+  - enabled: 1
+    path: Assets/_Custom/Scene/_LoadGame.unity
+    guid: 6e78a43556edeeb42b8d6b42a75c9e0a
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

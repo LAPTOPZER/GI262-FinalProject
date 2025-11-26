@@ -8,31 +8,66 @@ public class WarpPointAutoSave : MonoBehaviour
 
     [SerializeField] ItemType requiredKey = ItemType.None;
     [SerializeField] GameObject winText;
+    [SerializeField] GameObject warpText;
+    [SerializeField] GameObject noKeyText;
+
+    private bool playerInRange = false;
+    private PlayerController currentPlayer;
+
+    private void Update()
+    {
+        if (!playerInRange) return;
+        if (!Input.GetKeyDown(KeyCode.F)) return;
+
+        if (!UseRequiredKey())
+        {
+            noKeyText.SetActive(true);
+            warpText.SetActive(false);
+        }
+
+        var data = new SaveData
+        {
+            currentHp = currentPlayer.hp,
+            sceneName = targetScene,
+            spawnPoint = targetSpawnName,
+        };
+
+        SaveSystem.Save(data);
+        SceneManager.LoadScene(targetScene);
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        var player = other.GetComponent<PlayerController>();
-        if (player == null) return;
-
-        if (!HasRequiredKey())
-        {
-            Debug.Log("No key. Can't Warp");
-            return;
-        }
-
         if (!other.CompareTag("Player")) return;
 
-            Vector2 currentPos = other.transform.position;
+        currentPlayer = other.GetComponent<PlayerController>();
+        if (currentPlayer == null) return;
 
-            var data = new SaveData
-            {
-                currentHp = player.hp,
-                sceneName = targetScene,
-                spawnPoint = targetSpawnName,
-            };
+        playerInRange = true;
 
-            SaveSystem.Save(data);
-            SceneManager.LoadScene(targetScene);
+        bool hasKey = HasRequiredKey();
+
+        if (hasKey)
+        {
+            if (warpText != null) warpText.SetActive(true);
+            if (noKeyText != null) noKeyText.SetActive(false);
+        }
+        else
+        {
+            if (warpText != null) warpText.SetActive(false);
+            if (noKeyText != null) noKeyText.SetActive(true);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (!collision.CompareTag("Player")) return;
+
+        playerInRange = false;
+        currentPlayer = null;
+
+        if (warpText != null) warpText.SetActive(false);
+        if (noKeyText != null) noKeyText.SetActive(false);
     }
 
     private bool HasRequiredKey()
@@ -41,9 +76,27 @@ public class WarpPointAutoSave : MonoBehaviour
 
         if (inv == null)
         {
-            Debug.LogWarning("No Inventory this scene");
+            Debug.LogWarning("No Inventory in this scene");
             return false;
         }
+
+        switch (requiredKey)
+        {
+            case ItemType.None:
+                return true;
+            case ItemType.KeyLV1: return inv.keyLv1Count > 0;
+            case ItemType.KeyLV2: return inv.keyLv2Count > 0;
+            case ItemType.KeyLV3: return inv.keyLv3Count > 0;
+            case ItemType.KeyLV4: return inv.keyLv4Count > 0;
+            case ItemType.KeyLV5: return inv.keyLv5Count > 0;
+        }
+        return false;
+    }
+
+    private bool UseRequiredKey()
+    {
+        Inventory inv = Inventory.Instance;
+        if (inv == null) return false;
 
         switch (requiredKey)
         {
@@ -53,17 +106,17 @@ public class WarpPointAutoSave : MonoBehaviour
             case ItemType.KeyLV1:
                 if (inv.keyLv1Count > 0)
                 {
-                    inv.keyLv1Count -= inv.keyLv1Count;
-                    Debug.Log("Delete KeyLV1");
+                    inv.keyLv1Count -= 1;
+                    Debug.Log("Use KeyLV1");
                     return true;
                 }
-             return false;
+                return false;
 
             case ItemType.KeyLV2:
                 if (inv.keyLv2Count > 0)
                 {
-                    inv.keyLv2Count -= inv.keyLv2Count;
-                    Debug.Log("Delete KeyLV2");
+                    inv.keyLv2Count -= 1;
+                    Debug.Log("Use KeyLV2");
                     return true;
                 }
                 return false;
@@ -71,31 +124,33 @@ public class WarpPointAutoSave : MonoBehaviour
             case ItemType.KeyLV3:
                 if (inv.keyLv3Count > 0)
                 {
-                    inv.keyLv3Count -= inv.keyLv3Count;
-                    Debug.Log("Delete KeyLV3");
-
+                    inv.keyLv3Count -= 1;
+                    Debug.Log("Use KeyLV3");
                     return true;
                 }
                 return false;
+
             case ItemType.KeyLV4:
                 if (inv.keyLv4Count > 0)
                 {
-                    inv.keyLv4Count -= inv.keyLv4Count;
-                    Debug.Log("Delete KeyLV4");
-
+                    inv.keyLv4Count -= 1;
+                    Debug.Log("Use KeyLV4");
                     return true;
                 }
                 return false;
+
             case ItemType.KeyLV5:
                 if (inv.keyLv5Count > 0)
                 {
-                    inv.keyLv5Count -= inv.keyLv5Count;
-                    Debug.Log("Delete KeyLV5");
+                    inv.keyLv5Count -= 1;
+                    Debug.Log("Use KeyLV5");
+                    //if (winText != null) winText.SetActive(true);
                     Time.timeScale = 0;
-                    //winText.SetActive(true);
+                    return true;
                 }
                 return false;
         }
+
         return false;
     }
 }

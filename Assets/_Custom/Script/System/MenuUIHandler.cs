@@ -4,13 +4,10 @@ using UnityEngine.SceneManagement;
 
 public class MenuUIHandler : MonoBehaviour
 {
+    //_MainMenu
     public void StartGame()
     {
-        if (Inventory.Instance != null)
-        {
-            Destroy(Inventory.Instance.gameObject);
-        }
-        SceneManager.LoadScene("LV1");
+        SceneManager.LoadScene("_LoadGame");
     }
     public void Credit()
     {
@@ -40,5 +37,27 @@ public class MenuUIHandler : MonoBehaviour
         Application.Quit();
 #endif
 
+
+    }
+
+    //_LoadGame
+    public void NewGame()
+    {
+        SaveSystem.Delete();
+
+        if (Inventory.Instance != null)
+        {
+            Destroy(Inventory.Instance.gameObject);
+        }
+        SceneManager.LoadScene("LV1");
+    }
+
+    public void LoadGame()
+    {
+        if (SaveSystem.TryLoad(out var data))
+            SceneManager.LoadScene(data.sceneName);
+        else
+            Debug.LogWarning("No Save");
+            return;
     }
 }

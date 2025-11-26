@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour
@@ -9,6 +10,9 @@ public class Inventory : MonoBehaviour
     public int keyLv3Count = 0;
     public int keyLv4Count = 0;
     public int keyLv5Count = 0;
+    public int healPotion = 0;
+
+    public TMP_Text potionText;
 
     private void Awake()
     {
@@ -20,7 +24,10 @@ public class Inventory : MonoBehaviour
         else
         {
             Destroy(gameObject);
+            return;
         }
+
+        UpdateUI();
     }
 
     public void Collect(ItemType type, int amount)
@@ -42,6 +49,18 @@ public class Inventory : MonoBehaviour
             case ItemType.KeyLV5:
                 keyLv5Count += amount;
                 break;
+
+            case ItemType.HealPotion:
+                healPotion += amount;
+                break;
         }
+        UpdateUI();
+    }
+
+    public void UpdateUI()
+    {
+        if (potionText != null)
+            potionText.text = $"x {healPotion}";
+
     }
 }

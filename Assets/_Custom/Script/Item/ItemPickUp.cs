@@ -8,7 +8,7 @@ public class ItemPickUp : MonoBehaviour
 
     private void Update()
     {
-        if (canTake && Input.GetKeyDown(KeyCode.E))
+        if (canTake)
         {
             Inventory.Instance.Collect(itemType, amount);
             Destroy(gameObject);
