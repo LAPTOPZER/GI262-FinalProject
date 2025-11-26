@@ -107,7 +107,6 @@ public class WarpPointAutoSave : MonoBehaviour
                 if (inv.keyLv1Count > 0)
                 {
                     inv.keyLv1Count -= 1;
-                    Debug.Log("Use KeyLV1");
                     return true;
                 }
                 return false;
@@ -116,7 +115,6 @@ public class WarpPointAutoSave : MonoBehaviour
                 if (inv.keyLv2Count > 0)
                 {
                     inv.keyLv2Count -= 1;
-                    Debug.Log("Use KeyLV2");
                     return true;
                 }
                 return false;
@@ -125,7 +123,6 @@ public class WarpPointAutoSave : MonoBehaviour
                 if (inv.keyLv3Count > 0)
                 {
                     inv.keyLv3Count -= 1;
-                    Debug.Log("Use KeyLV3");
                     return true;
                 }
                 return false;
@@ -134,7 +131,6 @@ public class WarpPointAutoSave : MonoBehaviour
                 if (inv.keyLv4Count > 0)
                 {
                     inv.keyLv4Count -= 1;
-                    Debug.Log("Use KeyLV4");
                     return true;
                 }
                 return false;
@@ -143,8 +139,7 @@ public class WarpPointAutoSave : MonoBehaviour
                 if (inv.keyLv5Count > 0)
                 {
                     inv.keyLv5Count -= 1;
-                    Debug.Log("Use KeyLV5");
-                    //if (winText != null) winText.SetActive(true);
+                    if (winText != null) winText.SetActive(true);
                     Time.timeScale = 0;
                     return true;
                 }
