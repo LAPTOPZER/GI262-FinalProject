@@ -537,15 +537,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Songkrod Tongkoy 1660700392 329G No.4
+  m_text: 'Wachirawit Junnual 1660700277
 
     Songkrod Tongkoy 1660700392
-    329G No.4
 
-    Songkrod Tongkoy 1660700392 329G No.4
+    Nalinrat
+    Ninrat 1660700715
 
-    Songkrod Tongkoy 1660700392
-    329G No.4'
+    Tanyaporn Tongchumnum 1660706472'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9dfbf4a116faa4d4ba81ca85fb6382dc, type: 2}
   m_sharedMaterial: {fileID: 5188409665327665993, guid: 9dfbf4a116faa4d4ba81ca85fb6382dc,

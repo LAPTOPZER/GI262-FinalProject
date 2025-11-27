@@ -26,7 +26,15 @@ public class SceneBootstrap : MonoBehaviour
         if (playerCtrl != null)
         {
             playerCtrl.SetHp(data.currentHp);
-            return;
         }
+
+        var inv = Inventory.Instance;
+        if (inv != null)
+        {
+            inv.healPotion = data.healPotion;
+
+            inv.RefreshUI();
+        }
+        return;
     }
 }

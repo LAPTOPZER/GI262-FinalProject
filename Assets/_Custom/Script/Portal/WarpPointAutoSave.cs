@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using NUnit;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class WarpPointAutoSave : MonoBehaviour
@@ -31,13 +32,16 @@ public class WarpPointAutoSave : MonoBehaviour
 
         if (targetScene == "NONE") return;
 
-            var data = new SaveData
-        {
-            currentHp = currentPlayer.hp,
-            sceneName = targetScene,
-            spawnPoint = targetSpawnName,
-        };
+        var inv = Inventory.Instance;
 
+        var data = new SaveData
+            {
+                currentHp = currentPlayer.hp,
+                sceneName = targetScene,
+                spawnPoint = targetSpawnName,
+
+                healPotion = inv != null ? inv.healPotion : 0,
+            };
         SaveSystem.Save(data);
         SceneManager.LoadScene(targetScene);
     }

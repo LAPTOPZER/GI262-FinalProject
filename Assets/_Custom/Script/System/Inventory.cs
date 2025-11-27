@@ -85,7 +85,7 @@ public class Inventory : MonoBehaviour
         RefreshUI();
     }
 
-    private void RefreshUI()
+    public void RefreshUI()
     {
         foreach (var ui in FindObjectsOfType<InventoryUI>())
         {
